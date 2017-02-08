@@ -24,6 +24,10 @@ public class server {
 		
 	}
 	
+	public InetAddress getServerIPAddress() {
+		return null;
+	}
+	
 	//获取用户密码
 	public byte[] getServerUserPassword(String uname) {
 		return uname.getBytes();
@@ -33,9 +37,5 @@ public class server {
 	private boolean isUserExist(String userName) {
 		
 		return false;
-	}
-	
-	public InetAddress getServerIPAddress() {
-		return null;
 	}
 }

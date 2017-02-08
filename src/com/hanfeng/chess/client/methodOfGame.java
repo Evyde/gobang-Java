@@ -9,8 +9,8 @@ import java.security.MessageDigest;
  * 首先，该类有一个构造器，限制只能实例化一个
  */
 public class methodOfGame {
-	private int numOfmf = 0;
 	private methodOfGame mf = null;
+	private int numOfmf = 0;
 	private server s = null;
 	private methodOfGame(InetAddress ip) {
 		try {
@@ -30,6 +30,12 @@ public class methodOfGame {
 		}else return mf;
 	}
 
+	//注册方法，简单注册一下
+	public void register(user u) {
+		
+		
+	}
+	
 	/*
 	 * 登录方法
 	 * 用于和服务器交互判断用户名密码是否正确
@@ -37,12 +43,6 @@ public class methodOfGame {
 	 * */
 	public void startLogin(user u) throws Exception{
 		if(u.getPassword().equals(s.getServerUserPassword(u.name)));
-	}
-	
-	//注册方法，简单注册一下
-	public void register(user u) {
-		
-		
 	}
 	
 	/*

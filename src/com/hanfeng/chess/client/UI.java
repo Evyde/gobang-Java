@@ -12,6 +12,27 @@ import javax.swing.text.JTextComponent;
 
 
 public class UI {
+	/*
+	 * 文本框获得焦点清空其内容类
+	 * 实现FocusListener接口
+	 * 无法使用Lambda表达式，故采取内部类方式
+	 * */
+	class clearText implements FocusListener {
+		//声明一个J文本组件类型变量
+		JTextComponent jt = null;
+		//构造器
+		public clearText(JTextComponent jtx) {
+			jt = jtx;
+		}
+		//接口实现1
+		public void focusGained(FocusEvent e) {
+			jt.setText("");
+		}
+		//接口实现2
+		public void focusLost(FocusEvent e) {
+			;
+		}
+	}
 	{
 		//禁用皮肤自带按钮
 		UIManager.put("RootPane.setupButtonVisible", false);
@@ -72,26 +93,5 @@ public class UI {
 		jf.setResizable(false);	//设置禁止缩放
 		jf.setVisible(true);	//设置窗口可见
 		return jf;
-	}
-	/*
-	 * 文本框获得焦点清空其内容类
-	 * 实现FocusListener接口
-	 * 无法使用Lambda表达式，故采取内部类方式
-	 * */
-	class clearText implements FocusListener {
-		//声明一个J文本组件类型变量
-		JTextComponent jt = null;
-		//构造器
-		public clearText(JTextComponent jtx) {
-			jt = jtx;
-		}
-		//接口实现1
-		public void focusGained(FocusEvent e) {
-			jt.setText("");
-		}
-		//接口实现2
-		public void focusLost(FocusEvent e) {
-			;
-		}
 	}
 }
