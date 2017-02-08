@@ -1,3 +1,4 @@
+package com.hanfeng.chess.client;
 import java.net.Socket;
 
 import javax.swing.JFrame;
@@ -24,7 +25,7 @@ public class mainClass {
 		//创建登录界面
 		UI ui = new UI();
 		//创建一个Socket
-		Socket serevrSocket = new Socket(127.0.0.1,80);
+		//Socket serevrSocket = new Socket(127.0.0.1,80);
 		JFrame jf = null;
 		try {
 			jf = ui.creatLoginFrame();

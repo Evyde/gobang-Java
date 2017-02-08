@@ -1,3 +1,4 @@
+package com.hanfeng.chess.client;
 /*
  * 这是一个登陆异常类
  * 
