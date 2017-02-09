@@ -2,15 +2,15 @@ package com.hanfeng.chess.client;
 import java.security.MessageDigest;
 
 /*
- * name²»Ê¹ÓÃ·â×°
- * passwordÊ¹ÓÃ
- * ÔİÊ±Ã»ÓĞUID£¬AGE£¬SEXÕâĞ©ĞÅÏ¢£¬¾ÍÔì³ÉÓÃ»§ÃûÎªÎ¨Ò»Ê¶±ğ·½·¨
+ * nameä¸ä½¿ç”¨å°è£…
+ * passwordä½¿ç”¨
+ * æš‚æ—¶æ²¡æœ‰UIDï¼ŒAGEï¼ŒSEXè¿™äº›ä¿¡æ¯ï¼Œå°±é€ æˆç”¨æˆ·åä¸ºå”¯ä¸€è¯†åˆ«æ–¹æ³•
  * */
 public class user {
-	//¼ÓÃÜËã·¨
-	//µ«ÊÇ¸Ğ¾õÔÚ´«²Î´¦´æÔÚÂ©¶´£¬¿ÉÄÜ»áµ¼ÖÂÓÃ»§ÃÜÂëĞ¹Â¶
+	//åŠ å¯†ç®—æ³•
+	//ä½†æ˜¯æ„Ÿè§‰åœ¨ä¼ å‚å¤„å­˜åœ¨æ¼æ´ï¼Œå¯èƒ½ä¼šå¯¼è‡´ç”¨æˆ·å¯†ç æ³„éœ²
 	private static byte[] encryptUserPassword(String userPassword) throws Exception {
-		//MD5¼ÓÃÜ£¬·Ç³£¼òµ¥¡£
+		//MD5åŠ å¯†ï¼Œéå¸¸ç®€å•ã€‚
 		String userInfo = new String("ThisIsAGameByHanFeng_@" + userPassword);
 		MessageDigest md5 = MessageDigest.getInstance("MD5");
 		md5.update(userInfo.getBytes());
@@ -25,7 +25,7 @@ public class user {
 		this.name = userName;
 	}
 	
-	//getµÄÃÜÂëÒÑ¾­¼ÓÃÜ
+	//getçš„å¯†ç å·²ç»åŠ å¯†
 	public String getPassword() {
 		return this.password;
 	}
@@ -33,7 +33,7 @@ public class user {
 		try {
 			this.password = encryptUserPassword(userPassword).toString();
 		}catch(Exception e) {
-			System.out.println("¼ÙµÄ£¡¼ÓÃÜ¶¼³ö´í£¡");
+			System.out.println("å‡çš„ï¼åŠ å¯†éƒ½å‡ºé”™ï¼");
 			e.printStackTrace();
 		}
 	}

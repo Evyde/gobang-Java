@@ -5,8 +5,8 @@ import java.net.UnknownHostException;
 import java.security.MessageDigest;
 
 /**
- * ÕâÀï·Å×ÅÒ»Ğ©¹ØÓÚÓÎÏ·µÄ·½·¨
- * Ê×ÏÈ£¬¸ÃÀàÓĞÒ»¸ö¹¹ÔìÆ÷£¬ÏŞÖÆÖ»ÄÜÊµÀı»¯Ò»¸ö
+ * è¿™é‡Œæ”¾ç€ä¸€äº›å…³äºæ¸¸æˆçš„æ–¹æ³•
+ * é¦–å…ˆï¼Œè¯¥ç±»æœ‰ä¸€ä¸ªæ„é€ å™¨ï¼Œé™åˆ¶åªèƒ½å®ä¾‹åŒ–ä¸€ä¸ª
  */
 public class methodOfGame {
 	private static methodOfGame mf = null;
@@ -17,7 +17,7 @@ public class methodOfGame {
 		try {
 			s = new server(ip);
 		}catch(Exception e) {
-			System.out.println("´´½¨·şÎñÆ÷ÊµÀıÊ§°Ü£¡");
+			System.out.println("åˆ›å»ºæœåŠ¡å™¨å®ä¾‹å¤±è´¥ï¼");
 			e.printStackTrace();
 		}
 	}
@@ -33,31 +33,31 @@ public class methodOfGame {
 	
 	public static methodOfGame getmog() {
 		return mf;
-		//Ö±½ÓgetÒ»¸ö£¬±È½Ï¼òµ¥
+		//ç›´æ¥getä¸€ä¸ªï¼Œæ¯”è¾ƒç®€å•
 	}
 
-	//×¢²á·½·¨£¬¼òµ¥×¢²áÒ»ÏÂ
+	//æ³¨å†Œæ–¹æ³•ï¼Œç®€å•æ³¨å†Œä¸€ä¸‹
 	public boolean register(user u) throws gameException{
-		//throw new gameException("ÓÃ»§Ãû´íÎó");
+		//throw new gameException("ç”¨æˆ·åé”™è¯¯");
 		return true;
 	}
 	
 	/*
-	 * µÇÂ¼·½·¨
-	 * ÓÃÓÚºÍ·şÎñÆ÷½»»¥ÅĞ¶ÏÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
-	 * ²¢ÇÒ½«ÓÃ»§µÄ×´Ì¬ÖÃÎªÔÚÏß
+	 * ç™»å½•æ–¹æ³•
+	 * ç”¨äºå’ŒæœåŠ¡å™¨äº¤äº’åˆ¤æ–­ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
+	 * å¹¶ä¸”å°†ç”¨æˆ·çš„çŠ¶æ€ç½®ä¸ºåœ¨çº¿
 	 * */
 	public void startLogin(user u) throws Exception{
-		//throw new gameException("ÓÃ»§Ãû´íÎó");
+		//throw new gameException("ç”¨æˆ·åé”™è¯¯");
 		//if(u.getPassword().equals(s.getServerUserPassword(u.name)));
 	}
 	
 	/*
-	 * ÆåÅÌ£º15Ïß*15Ïß£¬225½»µã
-	 * ·ÖÇø£º15ĞĞ*15ÁĞ£¬225¿é
-	 * µ±ÓÃ»§µã»÷Ê±£¬²úÉúÒ»¸ö×ø±ê
-	 * ÅĞ¶Ï¸Ã×ø±êÎ»ÓÚÄÄÒ»¿é£¬¸Ã¿é¶ÔÓ¦Ò»¸ö½»µã
-	 * È»ºó½øĞĞÆå×Ó¡¢±ß¿ò»æÖÆ
-	 * ²¢ÖÃÓÚÊı×éÖĞ
+	 * æ£‹ç›˜ï¼š15çº¿*15çº¿ï¼Œ225äº¤ç‚¹
+	 * åˆ†åŒºï¼š15è¡Œ*15åˆ—ï¼Œ225å—
+	 * å½“ç”¨æˆ·ç‚¹å‡»æ—¶ï¼Œäº§ç”Ÿä¸€ä¸ªåæ ‡
+	 * åˆ¤æ–­è¯¥åæ ‡ä½äºå“ªä¸€å—ï¼Œè¯¥å—å¯¹åº”ä¸€ä¸ªäº¤ç‚¹
+	 * ç„¶åè¿›è¡Œæ£‹å­ã€è¾¹æ¡†ç»˜åˆ¶
+	 * å¹¶ç½®äºæ•°ç»„ä¸­
 	 * */
 }

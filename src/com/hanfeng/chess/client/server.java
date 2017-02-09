@@ -3,12 +3,12 @@ package com.hanfeng.chess.client;
 import java.net.*;
 
 /*
- * ´¦Àí·şÎñÆ÷Àà
- * ÎªÊ²Ã´²»ÏŞÖÆÁ¬½Ó£¿
- * ÒòÎªÎ¨Ò»ÊµÀı»¯´ËÀàµÄÖ»ÓĞmethodOfGameÀà
- * ¶ø¸ÃÀàÒÑ¾­ÏŞÖÆÎªÖ»ÄÜÊµÀı»¯Ò»¸ö
- * ËùÒÔ¸ÃÀà²»ÏŞÖÆ
- * ²»¿¼ÂÇÆäËûÎÊÌâ
+ * å¤„ç†æœåŠ¡å™¨ç±»
+ * ä¸ºä»€ä¹ˆä¸é™åˆ¶è¿æ¥ï¼Ÿ
+ * å› ä¸ºå”¯ä¸€å®ä¾‹åŒ–æ­¤ç±»çš„åªæœ‰methodOfGameç±»
+ * è€Œè¯¥ç±»å·²ç»é™åˆ¶ä¸ºåªèƒ½å®ä¾‹åŒ–ä¸€ä¸ª
+ * æ‰€ä»¥è¯¥ç±»ä¸é™åˆ¶
+ * ä¸è€ƒè™‘å…¶ä»–é—®é¢˜
  * */
 
 public class server {
@@ -16,8 +16,8 @@ public class server {
 
 	}
 	/*
-	 * Á¬½Ó·şÎñÆ÷·½·¨
-	 * ÓÃÓÚÁ¬½Ó·şÎñÆ÷
+	 * è¿æ¥æœåŠ¡å™¨æ–¹æ³•
+	 * ç”¨äºè¿æ¥æœåŠ¡å™¨
 	 * */
 	public void connectServer() throws Exception {
 		
@@ -28,12 +28,12 @@ public class server {
 		return null;
 	}
 	
-	//»ñÈ¡ÓÃ»§ÃÜÂë
+	//è·å–ç”¨æˆ·å¯†ç 
 	public byte[] getServerUserPassword(String uname) {
 		return uname.getBytes();
 	}
 	
-	//ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚµÄ·½·¨£¬´æÔÚ·µ»Øtrue
+	//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨çš„æ–¹æ³•ï¼Œå­˜åœ¨è¿”å›true
 	public static boolean isUserExist(String userName) {
 		
 		return true;

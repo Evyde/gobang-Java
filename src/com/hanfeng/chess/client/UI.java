@@ -6,65 +6,70 @@ import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
 /*
- * ÕâÀï·ÅÖÃ×ÅÐí¶à¹ØÓÚUIµÄ·½·¨
+ * è¿™é‡Œæ”¾ç½®ç€è®¸å¤šå…³äºŽUIçš„æ–¹æ³•
  * 
+ * 
+ * è¯´æ˜Žï¼šä¸ºäº†ç®€å•ï¼Œä½¿ç”¨System.exit(0);å…³é—­ç¨‹åºï¼Œè™½ç„¶è¿™å¯èƒ½ä¼šé€ æˆå…³é—­JVMè™šæ‹Ÿæœºæ‰€å¯¼è‡´çš„
+ * å…¶ä»–ç¨‹åºçš„å…³é—­
  * */
 
 
 public class UI {
 	/*
-	 * ÎÄ±¾¿ò»ñµÃ½¹µãÇå¿ÕÆäÄÚÈÝÀà
-	 * ÊµÏÖFocusListener½Ó¿Ú
-	 * ÎÞ·¨Ê¹ÓÃLambda±í´ïÊ½£¬¹Ê²ÉÈ¡ÄÚ²¿Àà·½Ê½
+	 * æ–‡æœ¬æ¡†èŽ·å¾—ç„¦ç‚¹æ¸…ç©ºå…¶å†…å®¹ç±»
+	 * å®žçŽ°FocusListeneræŽ¥å£
+	 * æ— æ³•ä½¿ç”¨Lambdaè¡¨è¾¾å¼ï¼Œæ•…é‡‡å–å†…éƒ¨ç±»æ–¹å¼
 	 * */
 	class clearText implements FocusListener {
-		//ÉùÃ÷Ò»¸öJÎÄ±¾×é¼þÀàÐÍ±äÁ¿
+		//å£°æ˜Žä¸€ä¸ªJæ–‡æœ¬ç»„ä»¶ç±»åž‹å˜é‡
 		JTextComponent jt = null;
-		//¹¹ÔìÆ÷
+		//æž„é€ å™¨
 		public clearText(JTextComponent jtx) {
 			jt = jtx;
 		}
-		//½Ó¿ÚÊµÏÖ1
+		//æŽ¥å£å®žçŽ°1
 		public void focusGained(FocusEvent e) {
 			jt.setText("");
 		}
-		//½Ó¿ÚÊµÏÖ2
+		//æŽ¥å£å®žçŽ°2
 		public void focusLost(FocusEvent e) {
 			;
 		}
 	}
 	{
-		//½ûÓÃÆ¤·ô×Ô´ø°´Å¥
+		//ç¦ç”¨çš®è‚¤è‡ªå¸¦æŒ‰é’®
 		UIManager.put("RootPane.setupButtonVisible", false);
 	}
 	/*
-	 * µÇÂ¼´°¿Ú
+	 * ç™»å½•çª—å£
 	 * */
 	public JFrame creatLoginFrame() throws Throwable {
-		//´´½¨±äÁ¿
-		JFrame jf = new JFrame("µÇÂ¼´°¿Ú");
-		JButton loginB = new JButton("µÇÂ¼");
-		JButton exitB = new JButton("ÍË³ö");
-		JButton registerB = new JButton("×¢²á");
-		JTextField text1 = new JTextField("ÓÃ»§Ãû",1);
-		JPasswordField text2 = new JPasswordField("ÃÜÂë",1);
+		//åˆ›å»ºå˜é‡
+		JFrame jf = new JFrame("ç™»å½•çª—å£");
+		JButton loginB = new JButton("ç™»å½•");
+		JButton exitB = new JButton("é€€å‡º");
+		JButton registerB = new JButton("æ³¨å†Œ");
+		JTextField text1 = new JTextField("ç”¨æˆ·å",1);
+		JPasswordField text2 = new JPasswordField("å¯†ç ",1);
 		Box box1 = Box.createHorizontalBox();
 		Box box2 = Box.createVerticalBox();
 		Box box3 = Box.createVerticalBox();
 		JMenuBar loginBar = new JMenuBar();
-		JMenu setting = new JMenu("Ñ¡Ïî");
-		JMenuItem about = new JMenuItem("¹ØÓÚ");
-		JMenuItem exit = new JMenuItem("ÍË³ö");
+		JMenu setting = new JMenu("é€‰é¡¹");
+		JMenuItem set = new JMenuItem("è®¾ç½®");
+		JMenuItem about = new JMenuItem("å…³äºŽ");
+		JMenuItem exit = new JMenuItem("é€€å‡º");
 		
 		//throw new loginException();
 		
-		//´¦Àí²Ëµ¥
+		//å¤„ç†èœå•
+		setting.add(set);
 		setting.add(about);
 		setting.add(exit);
 		loginBar.add(setting);
 		jf.setJMenuBar(loginBar);
 
-		//²¼¾Ö
+		//å¸ƒå±€
 		box1.add(loginB);
 		box1.add(Box.createHorizontalGlue());
 		box1.add(registerB);
@@ -75,7 +80,7 @@ public class UI {
 		box3.add(box2);
 		box3.add(box1);
 		
-		//ÊÂ¼þ¼àÌý
+		//äº‹ä»¶ç›‘å¬
 		text1.addFocusListener(new clearText(text1));
 		text2.addFocusListener(new clearText(text2));
 		loginB.addActionListener(e -> {
@@ -84,11 +89,11 @@ public class UI {
 			try {
 				methodOfGame.getmog().startLogin(u);
 				mainClass.loginStates = true;
-				JOptionPane.showMessageDialog(jf, "µÇÂ½³É¹¦£¡",  "³É¹¦", JOptionPane.DEFAULT_OPTION);
+				JOptionPane.showMessageDialog(jf, "ç™»å½•æˆåŠŸï¼",  "æˆåŠŸ", JOptionPane.INFORMATION_MESSAGE);
 			}catch (gameException le) {
-				JOptionPane.showMessageDialog(jf, le.getMessage(),  "´íÎó", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(jf, le.getMessage(),  "é”™è¯¯", JOptionPane.ERROR_MESSAGE);
 			}catch (Exception e1) {
-				System.out.println("³¢ÊÔµÇÂ½Ê§°Ü");
+				System.out.println("å°è¯•ç™»å½•å¤±è´¥");
 				e1.printStackTrace();
 			}
 			System.out.println("Start login......");
@@ -96,7 +101,7 @@ public class UI {
 		});
 		exitB.addActionListener(e -> {
 			System.out.println("Program will exit.");
-			System.exit(0);
+			configFileRW.getConfigFileRWClass().exitSavingFiles();
 		});
 		registerB.addActionListener(e -> {
 			user u = new user(text1.getText());
@@ -104,38 +109,169 @@ public class UI {
 			if(server.isUserExist(u.name)) {
 				try {
 					methodOfGame.getmog().register(u);
-					JOptionPane.showMessageDialog(jf, "×¢²á³É¹¦","³É¹¦", 0);
+					JOptionPane.showMessageDialog(jf, "æ³¨å†ŒæˆåŠŸ","æˆåŠŸ", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(jf,e1.getMessage(),"´íÎó", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(jf,e1.getMessage(),"é”™è¯¯", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
-			}else JOptionPane.showMessageDialog(jf,"ÓÃ»§Ãû·Ç·¨","´íÎó", JOptionPane.ERROR_MESSAGE);
+			}else JOptionPane.showMessageDialog(jf,"ç”¨æˆ·åéžæ³•","é”™è¯¯", JOptionPane.ERROR_MESSAGE);
+		});
+		about.addActionListener(e -> {
+			JOptionPane.showMessageDialog(jf, "ç‰ˆæƒæ‰€æœ‰"
+					+ "Â©\nä½œè€…ï¼šéŸ©æž«"
+					+ "\næ—¥æœŸï¼š2017å¹´2æœˆ"
+					+ "\nä¸€ä¸ªè”ç½‘çš„å›¾å½¢åŒ–äº”å­æ£‹æ¸¸æˆ"
+					+ "\nè¯´æ˜Žï¼šæœ¬ç¨‹åºçš®è‚¤æ¥è‡ªç½‘ç»œï¼Œä½œè€…è¯´æ˜Žå¯ç”¨äºŽä¸€åˆ‡ç”¨é€”ï¼Œè‹¥æœ‰ä¾µæƒå¯è”ç³»æˆ‘åˆ é™¤"
+					+ "\né‚®ç®±ï¼šlife.app.hanfeng@hotmail.com","å…³äºŽ", JOptionPane.INFORMATION_MESSAGE);
+		});
+		exit.addActionListener(e -> {
+			System.out.println("Program will exit.");
+			configFileRW.getConfigFileRWClass().exitSavingFiles();
+		});
+		set.addActionListener(e -> {
+			JFrame setjf = this.creatSettingFrame();
+			setjf.setVisible(true);
 		});
 		
-		//´°¿ÚÉèÖÃ
-		jf.setSize(500,200);	//´óÐ¡
-		jf.setLocationRelativeTo(null);	//¾ÓÖÐ
-		jf.add(box3);	//¼ÓÈëºÐ×Ó²¼¾Ö
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//ÉèÖÃ¡°X¡±¼üµÄ×÷ÓÃÎª¹Ø±Õ
-		jf.setResizable(false);	//ÉèÖÃ½ûÖ¹Ëõ·Å
-		jf.setVisible(true);	//ÉèÖÃ´°¿Ú¿É¼û
+		//çª—å£è®¾ç½®
+		text1.setHorizontalAlignment(JTextField.CENTER);	//è®¾ç½®æ–‡å­—å±…ä¸­
+		text2.setHorizontalAlignment(JPasswordField.CENTER);
+		jf.setSize(500,200);	//å¤§å°
+		jf.setLocationRelativeTo(null);	//å±…ä¸­
+		jf.add(box3);	//åŠ å…¥ç›’å­å¸ƒå±€
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//è®¾ç½®â€œXâ€é”®çš„ä½œç”¨ä¸ºå…³é—­
+		jf.setResizable(false);	//è®¾ç½®ç¦æ­¢ç¼©æ”¾
 		return jf;
 	}
 	
 	/*
-	 * ´óÌü´°¿Ú
-	 * »æÖÆÒ»Ð©×À×Ó£¬×À×ÓÊý´Ó·þÎñÆ÷¶ÁÈ¡
-	 * »¹ÓÐ×ùÎ»£¬Ã¿¸ö×À×ÓÁ½¸ö×ùÎ»
+	 * å¤§åŽ…çª—å£
+	 * ç»˜åˆ¶ä¸€äº›æ¡Œå­ï¼Œæ¡Œå­æ•°ä»ŽæœåŠ¡å™¨è¯»å–
+	 * è¿˜æœ‰åº§ä½ï¼Œæ¯ä¸ªæ¡Œå­ä¸¤ä¸ªåº§ä½
 	 * */
 	public JFrame creatDFrame() throws Exception{
-		JFrame jf = new JFrame("´óÌü");
+		JFrame jf = new JFrame("å¤§åŽ…");
 		JLabel jl = new JLabel("test");
+		JMenuBar loginBar = new JMenuBar();
+		JMenu setting = new JMenu("é€‰é¡¹");
+		JMenuItem set = new JMenuItem("è®¾ç½®");
+		JMenuItem about = new JMenuItem("å…³äºŽ");
+		JMenuItem exit = new JMenuItem("é€€å‡º");
+		
+		//å¤„ç†èœå•
+		setting.add(set);
+		setting.add(about);
+		setting.add(exit);
+		loginBar.add(setting);
+		jf.setJMenuBar(loginBar);
+		
+		//èœå•äº‹ä»¶
+		about.addActionListener(e -> {
+			JOptionPane.showMessageDialog(jf, "ç‰ˆæƒæ‰€æœ‰"
+					+ "Â©\nä½œè€…ï¼šéŸ©æž«"
+					+ "\næ—¥æœŸï¼š2017å¹´2æœˆ"
+					+ "\nä¸€ä¸ªè”ç½‘çš„å›¾å½¢åŒ–äº”å­æ£‹æ¸¸æˆ"
+					+ "\nè¯´æ˜Žï¼šæœ¬ç¨‹åºçš®è‚¤æ¥è‡ªç½‘ç»œï¼Œä½œè€…è¯´æ˜Žå¯ç”¨äºŽä¸€åˆ‡ç”¨é€”ï¼Œè‹¥æœ‰ä¾µæƒå¯è”ç³»æˆ‘åˆ é™¤"
+					+ "\né‚®ç®±ï¼šlife.app.hanfeng@hotmail.com","å…³äºŽ", JOptionPane.INFORMATION_MESSAGE);
+		});
+		exit.addActionListener(e -> {
+			System.out.println("Program will exit.");
+			configFileRW.getConfigFileRWClass().exitSavingFiles();
+		});
+		set.addActionListener(e -> {
+			JFrame setjf = this.creatSettingFrame();
+			setjf.setVisible(true);
+		});
 		
 		jf.add(jl);
 		
-		jf.setSize(jf.getMaximumSize());
-		jf.setVisible(true);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		jf.setSize(new Dimension(800,800));
 		
 		return jf;
+	}
+	
+	/*
+	 * æ¸¸æˆçª—å£
+	 * ç»˜åˆ¶ä¸€ä¸ªæ£‹ç›˜ï¼Œè¿˜è¦æœ‰æ£‹å­
+	 * å½“ç„¶æ¸¸æˆçª—å£è¦é‡å†™repaintæ–¹æ³•ï¼Œæ‰€ä»¥
+	 * */
+	public static class gameFrame extends JFrame {
+		public gameFrame() {
+			super("æ¸¸æˆçª—å£");
+		}
+		
+		//color:0ä¸ºç™½è‰²ï¼Œéž0é»‘è‰²
+		public void repaint(int x,int y,int color) {
+			JLabel jlb = new JLabel();
+			super.repaint();
+		}
+	}
+	
+	/*
+	 * è®¾ç½®çª—å£
+	 * */
+	public JFrame creatSettingFrame() {
+		JFrame jf = new JFrame("è®¾ç½®");
+		JCheckBox jck1 = new JCheckBox("AIè®¾ç½®");
+		//JCheckBox jck2 = new JCheckBox("çš®è‚¤");
+		Box box0 = new Box(BoxLayout.Y_AXIS);
+		Box box1 = new Box(BoxLayout.Y_AXIS);
+		Box box2 = new Box(BoxLayout.X_AXIS);
+		JButton save = new JButton("ä¿å­˜");
+		
+		jf.setSize(new Dimension(150,200));
+
+		//å¸ƒå±€
+		box2.add(Box.createHorizontalGlue());
+		box2.add(save);
+		box2.add(Box.createHorizontalGlue());
+		
+		box1.add(Box.createVerticalGlue());
+		box1.add(jck1);
+		//box1.add(jck2);
+		box1.add(Box.createVerticalGlue());
+		
+		box0.add(box1);
+		box0.add(box2);
+
+		jf.add(box0);
+		
+		//äº‹ä»¶
+		save.addActionListener(e -> {
+			String set = "on";
+			if(!jck1.isSelected()) {
+				set = "off";
+			}
+			configFileRW.getConfigFileRWClass().setSetting("AI", set);
+			new settingFrameListener(jf).windowClosing(null);
+		});
+		jf.addWindowListener(new settingFrameListener(jf));
+		
+		jf.setLocationRelativeTo(null);	//å±…ä¸­
+		jf.setResizable(false);
+
+		
+		return jf;
+	}
+	
+	public class settingFrameListener implements WindowListener {
+		JFrame j = null;
+		public settingFrameListener(JFrame jf) {
+			j = jf;
+		}
+		public void windowOpened(WindowEvent e) {}
+		public void windowClosing(WindowEvent e) {
+			j.setVisible(false);
+			j = null;
+			System.gc();
+		}
+		public void windowClosed(WindowEvent e) {}
+		public void windowIconified(WindowEvent e) {}
+		public void windowDeiconified(WindowEvent e) {}
+		public void windowActivated(WindowEvent e) {}
+		public void windowDeactivated(WindowEvent e) {}
+		
 	}
 }

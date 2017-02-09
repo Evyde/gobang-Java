@@ -1,5 +1,19 @@
+/*
+ * äº”å­æ£‹ç¨‹åºJAVAç‰ˆ
+ * æ‹Ÿå®šå›¾å½¢ç•Œé¢+ç½‘ç»œå¤§å…
+ * æ‰€ä»¥æœ‰ä»¥ä¸‹åŠŸèƒ½ï¼š
+ * ç™»å½•
+ * å¤§å…
+ * æ˜¾ç¤ºå½“å‰åœ¨çº¿ç”¨æˆ·
+ * //èŠå¤©
+ * 5ä¸ªæ¡Œå­
+ * åŠ å…¥æ¸¸æˆ
+ * é€€å‡ºæ¸¸æˆ
+ * AI
+ * */
+
 package com.hanfeng.chess.client;
-import java.net.*;
+import java.io.*;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,52 +22,65 @@ public class mainClass {
 	public static boolean loginStates = false;
 	
 	public static void main(String[] args) {
+		configFileRW cfg = configFileRW.getConfigFileRWClass();
+		//åˆ¤æ–­é…ç½®æ–‡ä»¶æ˜¯å¦å­˜åœ¨
+		try {
+			File f = new File(cfg.getConfigFilePath());
+			if(f.exists()) {
+				cfg.setFile(f);
+				cfg.readNowSetting();
+			}else cfg.writeNowSetting();
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "é”™è¯¯","æ–‡ä»¶è¯»å–é”™è¯¯ï¼å°†ä½¿ç”¨å‡ºå‚è®¾ç½®ï¼", JOptionPane.ERROR_MESSAGE);
+		}
+		
 		try {
 			methodOfGame mfg = methodOfGame.creatMethodOfGameClass(null);
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 		}catch(Exception e) {
-				System.out.println("³õÊ¼»¯Ê§°Ü£¡");
+				System.out.println("åˆå§‹åŒ–å¤±è´¥ï¼");
 				e.printStackTrace();
 		}
-		//´´½¨µÇÂ¼½çÃæ
+		//åˆ›å»ºç™»å½•ç•Œé¢
 		UI ui = new UI();
-		//´´½¨Ò»¸öSocket
+		//åˆ›å»ºä¸€ä¸ªSocket
 		//Socket serevrSocket = new Socket(127.0.0.1,80);
 
 		JFrame jf = null;
 		/*
-		 * ÕâÀï²¹³äËµÃ÷Ò»ÏÂ
-		 * Ê×ÏÈÓ¦µ±Á¬½ÓÍøÂç£¬¼´Á¬½Ó·şÎñÆ÷
-		 * »ñµÃÓë·şÎñÆ÷µÄÁ¬½ÓÖ®ºó
-		 * ½«´ËSocket±£´æ
-		 * ²¢ÇÒ»ñµÃÒ»¸ömethodOfGame
-		 * ½«´ËSocket´«Èë
+		 * è¿™é‡Œè¡¥å……è¯´æ˜ä¸€ä¸‹
+		 * é¦–å…ˆåº”å½“è¿æ¥ç½‘ç»œï¼Œå³è¿æ¥æœåŠ¡å™¨
+		 * è·å¾—ä¸æœåŠ¡å™¨çš„è¿æ¥ä¹‹å
+		 * å°†æ­¤Socketä¿å­˜
+		 * å¹¶ä¸”è·å¾—ä¸€ä¸ªmethodOfGame
+		 * å°†æ­¤Socketä¼ å…¥
 		 * */
 		
 		try {
 			jf = ui.creatLoginFrame();
 		} catch(Throwable t) {
-			JOptionPane.showMessageDialog(jf, "´´½¨µÇÂ¼´°¿ÚÊ§°Ü£¬ÇëÖØĞÂÆô¶¯³ÌĞò£¡",  "´íÎó", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(jf, "åˆ›å»ºç™»å½•çª—å£å¤±è´¥ï¼Œè¯·é‡æ–°å¯åŠ¨ç¨‹åºï¼",  "é”™è¯¯", JOptionPane.ERROR_MESSAGE);
 			t.printStackTrace();
 		}
-		
-		//×èÈû£¬µÈ´ıµÇÂ½Íê³É
-		for(;!loginStates;) ;
+		jf.setVisible(true);	//è®¾ç½®çª—å£å¯è§
+		//é˜»å¡ï¼Œç­‰å¾…ç™»é™†å®Œæˆ
+		while(!loginStates) System.out.println("Pause...");
 		
 		jf.setVisible(false);
 		jf = null;
 		
-		//½¨ÒéÏµÍ³»ØÊÕ
+		//å»ºè®®ç³»ç»Ÿå›æ”¶
 		System.gc();
 		
-		//½¨Á¢ĞÂµÄ´óÌü´°¿Ú
+		//å»ºç«‹æ–°çš„å¤§å…çª—å£
 		try {
 			jf = ui.creatDFrame();
 		}catch (Exception e) {
-			JOptionPane.showMessageDialog(jf, "´´½¨´óÌü´°¿ÚÊ§°Ü£¬ÇëÖØĞÂÆô¶¯³ÌĞò£¡",  "´íÎó", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(jf, "åˆ›å»ºå¤§å…çª—å£å¤±è´¥ï¼Œè¯·é‡æ–°å¯åŠ¨ç¨‹åºï¼",  "é”™è¯¯", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
-
+		//è®¾ç½®çª—å£å¯è§
+		jf.setVisible(true);
 		
 	}
 		

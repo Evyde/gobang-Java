@@ -1,10 +1,10 @@
 package com.hanfeng.chess.client;
 /*
- * ÕâÊÇÒ»¸ö×ÔÓÃÒì³£Àà
+ * è¿™æ˜¯ä¸€ä¸ªè‡ªç”¨å¼‚å¸¸ç±»
  * 
  * */
 public class gameException extends Exception{
-	String exceptionMsg = new String("Î´Öª´íÎó£¡");
+	String exceptionMsg = new String("æœªçŸ¥é”™è¯¯ï¼");
 	public gameException() {
 		
 	}
