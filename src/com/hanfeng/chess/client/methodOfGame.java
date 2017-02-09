@@ -9,9 +9,10 @@ import java.security.MessageDigest;
  * 首先，该类有一个构造器，限制只能实例化一个
  */
 public class methodOfGame {
-	private methodOfGame mf = null;
-	private int numOfmf = 0;
+	private static methodOfGame mf = null;
+	private static int numOfmf = 0;
 	private server s = null;
+
 	private methodOfGame(InetAddress ip) {
 		try {
 			s = new server(ip);
@@ -21,19 +22,24 @@ public class methodOfGame {
 		}
 	}
 	
-	public methodOfGame creatMethodOfGameClass(InetAddress serverIP) throws Exception {
+	public static methodOfGame creatMethodOfGameClass(InetAddress serverIP) throws Exception {
 		if(numOfmf == 0) {
-			if(serverIP != null) this.mf = new methodOfGame(serverIP);
-			else this.mf = new methodOfGame(InetAddress.getLocalHost());
+			if(serverIP != null) mf = new methodOfGame(serverIP);
+			else mf = new methodOfGame(InetAddress.getLocalHost());
 			numOfmf = 1;
 			return mf;
 		}else return mf;
 	}
+	
+	public static methodOfGame getmog() {
+		return mf;
+		//直接get一个，比较简单
+	}
 
 	//注册方法，简单注册一下
-	public void register(user u) {
-		
-		
+	public boolean register(user u) throws gameException{
+		//throw new gameException("用户名错误");
+		return true;
 	}
 	
 	/*
@@ -42,7 +48,8 @@ public class methodOfGame {
 	 * 并且将用户的状态置为在线
 	 * */
 	public void startLogin(user u) throws Exception{
-		if(u.getPassword().equals(s.getServerUserPassword(u.name)));
+		//throw new gameException("用户名错误");
+		//if(u.getPassword().equals(s.getServerUserPassword(u.name)));
 	}
 	
 	/*

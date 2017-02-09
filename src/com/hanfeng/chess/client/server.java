@@ -34,8 +34,8 @@ public class server {
 	}
 	
 	//判断用户是否存在的方法，存在返回true
-	private boolean isUserExist(String userName) {
+	public static boolean isUserExist(String userName) {
 		
-		return false;
+		return true;
 	}
 }

@@ -56,6 +56,8 @@ public class UI {
 		JMenuItem about = new JMenuItem("关于");
 		JMenuItem exit = new JMenuItem("退出");
 		
+		//throw new loginException();
+		
 		//处理菜单
 		setting.add(about);
 		setting.add(exit);
@@ -77,12 +79,37 @@ public class UI {
 		text1.addFocusListener(new clearText(text1));
 		text2.addFocusListener(new clearText(text2));
 		loginB.addActionListener(e -> {
-			
+			user u = new user(text1.getText());
+			u.setPassword(text2.getPassword().toString());
+			try {
+				methodOfGame.getmog().startLogin(u);
+				mainClass.loginStates = true;
+				JOptionPane.showMessageDialog(jf, "登陆成功！",  "成功", JOptionPane.DEFAULT_OPTION);
+			}catch (gameException le) {
+				JOptionPane.showMessageDialog(jf, le.getMessage(),  "错误", JOptionPane.ERROR_MESSAGE);
+			}catch (Exception e1) {
+				System.out.println("尝试登陆失败");
+				e1.printStackTrace();
+			}
 			System.out.println("Start login......");
+			
 		});
 		exitB.addActionListener(e -> {
 			System.out.println("Program will exit.");
 			System.exit(0);
+		});
+		registerB.addActionListener(e -> {
+			user u = new user(text1.getText());
+			u.setPassword(text2.getPassword().toString());
+			if(server.isUserExist(u.name)) {
+				try {
+					methodOfGame.getmog().register(u);
+					JOptionPane.showMessageDialog(jf, "注册成功","成功", 0);
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(jf,e1.getMessage(),"错误", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+			}else JOptionPane.showMessageDialog(jf,"用户名非法","错误", JOptionPane.ERROR_MESSAGE);
 		});
 		
 		//窗口设置
@@ -92,6 +119,23 @@ public class UI {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	//设置“X”键的作用为关闭
 		jf.setResizable(false);	//设置禁止缩放
 		jf.setVisible(true);	//设置窗口可见
+		return jf;
+	}
+	
+	/*
+	 * 大厅窗口
+	 * 绘制一些桌子，桌子数从服务器读取
+	 * 还有座位，每个桌子两个座位
+	 * */
+	public JFrame creatDFrame() throws Exception{
+		JFrame jf = new JFrame("大厅");
+		JLabel jl = new JLabel("test");
+		
+		jf.add(jl);
+		
+		jf.setSize(jf.getMaximumSize());
+		jf.setVisible(true);
+		
 		return jf;
 	}
 }
