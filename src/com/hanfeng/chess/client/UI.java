@@ -165,6 +165,7 @@ public class UI {
 		loginBar.add(setting);
 		jf.setJMenuBar(loginBar);
 		
+		 
 		//菜单事件
 		about.addActionListener(e -> {
 			JOptionPane.showMessageDialog(jf, "版权所有"
@@ -221,8 +222,6 @@ public class UI {
 		Box box2 = new Box(BoxLayout.X_AXIS);
 		JButton save = new JButton("保存");
 		
-		jf.setSize(new Dimension(150,200));
-
 		//布局
 		box2.add(Box.createHorizontalGlue());
 		box2.add(save);
@@ -237,6 +236,7 @@ public class UI {
 		box0.add(box2);
 
 		jf.add(box0);
+		jf.setSize(new Dimension(150,200));
 		
 		//事件
 		save.addActionListener(e -> {
@@ -256,6 +256,9 @@ public class UI {
 		return jf;
 	}
 	
+	/*
+	 * 设置窗口监听类
+	 * */
 	public class settingFrameListener implements WindowListener {
 		JFrame j = null;
 		public settingFrameListener(JFrame jf) {
@@ -264,6 +267,7 @@ public class UI {
 		public void windowOpened(WindowEvent e) {}
 		public void windowClosing(WindowEvent e) {
 			j.setVisible(false);
+			j.dispose();
 			j = null;
 			System.gc();
 		}

@@ -64,9 +64,10 @@ public class mainClass {
 		}
 		jf.setVisible(true);	//设置窗口可见
 		//阻塞，等待登陆完成
-		while(!loginStates) System.out.println("Pause...");
+		while(!loginStates) ;
 		
 		jf.setVisible(false);
+		jf.dispose();
 		jf = null;
 		
 		//建议系统回收
