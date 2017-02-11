@@ -1,7 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/com/hanfeng/chess/client/GameException.java=UTF-8
+encoding//src/com/hanfeng/chess/client/MainClass.java=UTF-8
+encoding//src/com/hanfeng/chess/client/MethodOfGame.java=UTF-8
+encoding//src/com/hanfeng/chess/client/Server.java=UTF-8
 encoding//src/com/hanfeng/chess/client/UI.java=UTF-8
-encoding//src/com/hanfeng/chess/client/gameException.java=UTF-8
-encoding//src/com/hanfeng/chess/client/mainClass.java=UTF-8
-encoding//src/com/hanfeng/chess/client/methodOfGame.java=UTF-8
-encoding//src/com/hanfeng/chess/client/server.java=UTF-8
-encoding//src/com/hanfeng/chess/client/user.java=UTF-8
+encoding//src/com/hanfeng/chess/client/User.java=UTF-8
+encoding//src/com/hanfeng/chess/server/HandleClientRequest.java=UTF-8
+encoding//src/com/hanfeng/chess/server/MainClass.java=UTF-8

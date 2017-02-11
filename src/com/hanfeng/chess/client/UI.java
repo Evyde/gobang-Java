@@ -84,13 +84,13 @@ public class UI {
 		text1.addFocusListener(new clearText(text1));
 		text2.addFocusListener(new clearText(text2));
 		loginB.addActionListener(e -> {
-			user u = new user(text1.getText());
+			User u = new User(text1.getText());
 			u.setPassword(text2.getPassword().toString());
 			try {
-				methodOfGame.getmog().startLogin(u);
-				mainClass.loginStates = true;
+				MethodOfGame.getmog().startLogin(u);
+				MainClass.loginStates = true;
 				JOptionPane.showMessageDialog(jf, "登录成功！",  "成功", JOptionPane.INFORMATION_MESSAGE);
-			}catch (gameException le) {
+			}catch (GameException le) {
 				JOptionPane.showMessageDialog(jf, le.getMessage(),  "错误", JOptionPane.ERROR_MESSAGE);
 			}catch (Exception e1) {
 				System.out.println("尝试登录失败");
@@ -101,14 +101,14 @@ public class UI {
 		});
 		exitB.addActionListener(e -> {
 			System.out.println("Program will exit.");
-			configFileRW.getConfigFileRWClass().exitSavingFiles();
+			ConfigFileRW.getConfigFileRWClass().exitSavingFiles();
 		});
 		registerB.addActionListener(e -> {
-			user u = new user(text1.getText());
+			User u = new User(text1.getText());
 			u.setPassword(text2.getPassword().toString());
-			if(server.isUserExist(u.name)) {
+			if(Server.isUserExist(u.name)) {
 				try {
-					methodOfGame.getmog().register(u);
+					MethodOfGame.getmog().register(u);
 					JOptionPane.showMessageDialog(jf, "注册成功","成功", JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception e1) {
 					JOptionPane.showMessageDialog(jf,e1.getMessage(),"错误", JOptionPane.ERROR_MESSAGE);
@@ -126,7 +126,7 @@ public class UI {
 		});
 		exit.addActionListener(e -> {
 			System.out.println("Program will exit.");
-			configFileRW.getConfigFileRWClass().exitSavingFiles();
+			ConfigFileRW.getConfigFileRWClass().exitSavingFiles();
 		});
 		set.addActionListener(e -> {
 			JFrame setjf = this.creatSettingFrame();
@@ -177,7 +177,7 @@ public class UI {
 		});
 		exit.addActionListener(e -> {
 			System.out.println("Program will exit.");
-			configFileRW.getConfigFileRWClass().exitSavingFiles();
+			ConfigFileRW.getConfigFileRWClass().exitSavingFiles();
 		});
 		set.addActionListener(e -> {
 			JFrame setjf = this.creatSettingFrame();
@@ -244,7 +244,7 @@ public class UI {
 			if(!jck1.isSelected()) {
 				set = "off";
 			}
-			configFileRW.getConfigFileRWClass().setSetting("AI", set);
+			ConfigFileRW.getConfigFileRWClass().setSetting("AI", set);
 			new settingFrameListener(jf).windowClosing(null);
 		});
 		jf.addWindowListener(new settingFrameListener(jf));

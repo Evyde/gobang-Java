@@ -18,11 +18,11 @@ import java.io.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class mainClass {
+public class MainClass {
 	public static boolean loginStates = false;
 	
 	public static void main(String[] args) {
-		configFileRW cfg = configFileRW.getConfigFileRWClass();
+		ConfigFileRW cfg = ConfigFileRW.getConfigFileRWClass();
 		//判断配置文件是否存在
 		try {
 			File f = new File(cfg.getConfigFilePath());
@@ -35,7 +35,7 @@ public class mainClass {
 		}
 		
 		try {
-			methodOfGame mfg = methodOfGame.creatMethodOfGameClass(null);
+			MethodOfGame mfg = MethodOfGame.creatMethodOfGameClass();
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 		}catch(Exception e) {
 				System.out.println("初始化失败！");

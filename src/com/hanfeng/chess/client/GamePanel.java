@@ -5,7 +5,7 @@ import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
-public class gamePanel extends JPanel {
+public class GamePanel extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		// TODO 自动生成的方法存根

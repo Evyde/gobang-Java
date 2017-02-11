@@ -4,23 +4,23 @@ import java.io.*;
 
 import javax.swing.*;
 
-public class configFileRW {
+public class ConfigFileRW {
 	private String configFilePath = "./config.ini";
 	private File fe = null;
 	private static int classs = 0;
-	private static configFileRW cfg;
+	private static ConfigFileRW cfg;
 	private String[][] nowSettings = {
 	{"AI"},
 	{"on"}
 	};
 	
-	private configFileRW() {
+	private ConfigFileRW() {
 		
 	}
 	
-	public static configFileRW getConfigFileRWClass() {
+	public static ConfigFileRW getConfigFileRWClass() {
 		if(classs == 0) {
-			cfg = new configFileRW();
+			cfg = new ConfigFileRW();
 			return cfg;
 		}else return cfg;
 	}
@@ -36,7 +36,7 @@ public class configFileRW {
 	public String getSetting(String sn) {
 		int i = 0;
 		switch(sn) {
-		case "AI" : i = 0;
+		case "AI" : i = 0; break;
 
 		default : i = 0;
 		}
@@ -47,7 +47,7 @@ public class configFileRW {
 	public void setSetting(String sn,String sv) {
 		int i = 0;
 		switch(sn) {
-		case "AI" : i = 0;
+		case "AI" : i = 0; break;
 
 		default : i = 0;
 		}

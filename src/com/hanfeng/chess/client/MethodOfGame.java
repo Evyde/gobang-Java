@@ -8,36 +8,36 @@ import java.security.MessageDigest;
  * 这里放着一些关于游戏的方法
  * 首先，该类有一个构造器，限制只能实例化一个
  */
-public class methodOfGame {
-	private static methodOfGame mf = null;
+public class MethodOfGame {
+	private static MethodOfGame mf = null;
 	private static int numOfmf = 0;
-	private server s = null;
+	private Server s = null;
 
-	private methodOfGame(InetAddress ip) {
+	private MethodOfGame() {
 		try {
-			s = new server(ip);
+			s = new Server();
+			s.connectServer();
 		}catch(Exception e) {
 			System.out.println("创建服务器实例失败！");
 			e.printStackTrace();
 		}
 	}
 	
-	public static methodOfGame creatMethodOfGameClass(InetAddress serverIP) throws Exception {
+	public static MethodOfGame creatMethodOfGameClass() throws Exception {
 		if(numOfmf == 0) {
-			if(serverIP != null) mf = new methodOfGame(serverIP);
-			else mf = new methodOfGame(InetAddress.getLocalHost());
+			mf = new MethodOfGame();
 			numOfmf = 1;
 			return mf;
 		}else return mf;
 	}
 	
-	public static methodOfGame getmog() {
+	public static MethodOfGame getmog() {
 		return mf;
 		//直接get一个，比较简单
 	}
 
 	//注册方法，简单注册一下
-	public boolean register(user u) throws gameException{
+	public boolean register(User u) throws GameException{
 		//throw new gameException("用户名错误");
 		return true;
 	}
@@ -47,7 +47,7 @@ public class methodOfGame {
 	 * 用于和服务器交互判断用户名密码是否正确
 	 * 并且将用户的状态置为在线
 	 * */
-	public void startLogin(user u) throws Exception{
+	public void startLogin(User u) throws Exception{
 		//throw new gameException("用户名错误");
 		//if(u.getPassword().equals(s.getServerUserPassword(u.name)));
 	}

@@ -2,6 +2,10 @@ package com.hanfeng.chess.client;
 
 import java.net.*;
 
+import javax.swing.JOptionPane;
+
+import sun.net.InetAddressCachePolicy;
+
 /*
  * 处理服务器类
  * 为什么不限制连接？
@@ -11,17 +15,20 @@ import java.net.*;
  * 不考虑其他问题
  * */
 
-public class server {
-	public server(InetAddress ip) {
-
+public class Server {
+	private int port = 23232;
+	private String serverIP = "127.0.0.1";
+	public Server() {
+		
 	}
 	/*
 	 * 连接服务器方法
 	 * 用于连接服务器
 	 * */
 	public void connectServer() throws Exception {
-		
-		
+		Socket s = new Socket(serverIP,port);
+		System.out.println("123");
+		s.connect(null);
 	}
 	
 	public InetAddress getServerIPAddress() {

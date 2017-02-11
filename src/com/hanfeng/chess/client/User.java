@@ -6,7 +6,7 @@ import java.security.MessageDigest;
  * password使用
  * 暂时没有UID，AGE，SEX这些信息，就造成用户名为唯一识别方法
  * */
-public class user {
+public class User {
 	//加密算法
 	//但是感觉在传参处存在漏洞，可能会导致用户密码泄露
 	private static byte[] encryptUserPassword(String userPassword) throws Exception {
@@ -21,7 +21,7 @@ public class user {
 	
 	private String password = "";
 	
-	public user(String userName) {
+	public User(String userName) {
 		this.name = userName;
 	}
 	
