@@ -15,5 +15,10 @@ public class HandleClientRequest implements Runnable {
 		System.out.println("[INFO]有用户连接");
 	}
 	
+	public String phraseClientRequest() {
+		in.read(b)
+		return "";
+	}
+	
 
 }

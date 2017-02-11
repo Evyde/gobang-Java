@@ -106,15 +106,20 @@ public class UI {
 		registerB.addActionListener(e -> {
 			User u = new User(text1.getText());
 			u.setPassword(text2.getPassword().toString());
-			if(Server.isUserExist(u.name)) {
-				try {
-					MethodOfGame.getmog().register(u);
-					JOptionPane.showMessageDialog(jf, "注册成功","成功", JOptionPane.INFORMATION_MESSAGE);
-				} catch (Exception e1) {
-					JOptionPane.showMessageDialog(jf,e1.getMessage(),"错误", JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				}
-			}else JOptionPane.showMessageDialog(jf,"用户名非法","错误", JOptionPane.ERROR_MESSAGE);
+			try {
+				if(MethodOfGame.getmog().s.isUserExist(u.name)) {
+					try {
+						MethodOfGame.getmog().register(u);
+						JOptionPane.showMessageDialog(jf, "注册成功","成功", JOptionPane.INFORMATION_MESSAGE);
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(jf,e1.getMessage(),"错误", JOptionPane.ERROR_MESSAGE);
+						e1.printStackTrace();
+					}
+				}else JOptionPane.showMessageDialog(jf,"用户名非法","错误", JOptionPane.ERROR_MESSAGE);
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog(null, "未知错误！");
+				e1.printStackTrace();
+			}
 		});
 		about.addActionListener(e -> {
 			JOptionPane.showMessageDialog(jf, "版权所有"

@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 public class MethodOfGame {
 	private static MethodOfGame mf = null;
 	private static int numOfmf = 0;
-	private Server s = null;
+	Server s = null;
 
 	private MethodOfGame() {
 		try {
@@ -48,8 +48,10 @@ public class MethodOfGame {
 	 * 并且将用户的状态置为在线
 	 * */
 	public void startLogin(User u) throws Exception{
-		//throw new gameException("用户名错误");
-		//if(u.getPassword().equals(s.getServerUserPassword(u.name)));
+		if(!s.isUserExist(u.name))
+			throw new GameException("用户名错误");
+		
+		if(u.getPassword().equals(s.getServerUserPassword(u.name)));
 	}
 	
 	/*
