@@ -1,5 +1,5 @@
 /**
- * 
+ * 加密异常类
  */
 package com.hanfeng.chess.client.module.exception;
 
@@ -7,20 +7,20 @@ package com.hanfeng.chess.client.module.exception;
  * @author HanFeng
  *
  */
-public class GameException extends Exception {
+public class EncryptException extends Exception {
 
 	/**
 	 * 
 	 */
-	public GameException() {
+	public EncryptException() {
 		// TODO 自动生成的构造函数存根
-		super("未知游戏错误！");
+		super("加密未知错误！");
 	}
 
 	/**
 	 * @param message
 	 */
-	public GameException(String message) {
+	public EncryptException(String message) {
 		super(message);
 		// TODO 自动生成的构造函数存根
 	}
@@ -28,7 +28,7 @@ public class GameException extends Exception {
 	/**
 	 * @param cause
 	 */
-	public GameException(Throwable cause) {
+	public EncryptException(Throwable cause) {
 		super(cause);
 		// TODO 自动生成的构造函数存根
 	}
@@ -37,7 +37,7 @@ public class GameException extends Exception {
 	 * @param message
 	 * @param cause
 	 */
-	public GameException(String message, Throwable cause) {
+	public EncryptException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO 自动生成的构造函数存根
 	}
@@ -48,7 +48,7 @@ public class GameException extends Exception {
 	 * @param enableSuppression
 	 * @param writableStackTrace
 	 */
-	public GameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+	public EncryptException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO 自动生成的构造函数存根
 	}

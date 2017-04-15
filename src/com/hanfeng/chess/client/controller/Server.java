@@ -1,4 +1,4 @@
-package com.hanfeng.chess.client;
+package com.hanfeng.chess.client.controller;
 
 import java.io.*;
 import java.net.*;

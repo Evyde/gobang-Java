@@ -18,6 +18,10 @@ import java.io.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.hanfeng.chess.client.controller.ConfigFileRW;
+import com.hanfeng.chess.client.module.MethodOfGame;
+import com.hanfeng.chess.client.view.GameFrame;
+
 public class MainClass {
 	public static boolean loginStates = false;
 	
@@ -31,18 +35,18 @@ public class MainClass {
 				cfg.readNowSetting();
 			}else cfg.writeNowSetting();
 		}catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "错误","文件读取错误！将使用出厂设置！", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, Messages.getString("MainClass.error"),Messages.getString("MainClass.fileReadError"), JOptionPane.ERROR_MESSAGE); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		
 		try {
 			MethodOfGame mfg = MethodOfGame.creatMethodOfGameClass();
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 		}catch(Exception e) {
-				System.out.println("初始化失败！");
+				System.out.println(Messages.getString("MainClass.initError")); //$NON-NLS-1$
 				e.printStackTrace();
 		}
 		//创建登录界面
-		UI ui = new UI();
+		GameFrame ui = new GameFrame();
 		//创建一个Socket
 		//Socket serevrSocket = new Socket(127.0.0.1,80);
 
@@ -59,7 +63,7 @@ public class MainClass {
 		try {
 			jf = ui.creatLoginFrame();
 		} catch(Throwable t) {
-			JOptionPane.showMessageDialog(jf, "创建登录窗口失败，请重新启动程序！",  "错误", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(jf, Messages.getString("MainClass.initLoginFrameError"),  Messages.getString("MainClass.error"), JOptionPane.ERROR_MESSAGE); //$NON-NLS-1$ //$NON-NLS-2$
 			t.printStackTrace();
 		}
 		jf.setVisible(true);	//设置窗口可见
@@ -77,7 +81,7 @@ public class MainClass {
 		try {
 			jf = ui.creatDFrame();
 		}catch (Exception e) {
-			JOptionPane.showMessageDialog(jf, "创建大厅窗口失败，请重新启动程序！",  "错误", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(jf, Messages.getString("MainClass.initHallFrameError"),  Messages.getString("MainClass.error"), JOptionPane.ERROR_MESSAGE); //$NON-NLS-1$ //$NON-NLS-2$
 			e.printStackTrace();
 		}
 		//设置窗口可见

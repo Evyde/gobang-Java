@@ -1,8 +1,6 @@
-package com.hanfeng.chess.client;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.security.MessageDigest;
+package com.hanfeng.chess.client.module;
+import com.hanfeng.chess.client.controller.Server;
+import com.hanfeng.chess.client.module.exception.GameException;
 
 /**
  * 这里放着一些关于游戏的方法
@@ -11,7 +9,7 @@ import java.security.MessageDigest;
 public class MethodOfGame {
 	private static MethodOfGame mf = null;
 	private static int numOfmf = 0;
-	Server s = null;
+	private Server s = null;
 
 	private MethodOfGame() {
 		try {
@@ -48,11 +46,19 @@ public class MethodOfGame {
 	 * 并且将用户的状态置为在线
 	 * */
 	public void startLogin(User u) throws Exception{
-		if(!s.isUserExist(u.name))
+		if(!getServer().isUserExist(u.name))
 			throw new GameException("用户名错误");
 		
-		if(u.getPassword().equals(s.getServerUserPassword(u.name)));
+		if(u.getPassword().equals(getServer().getServerUserPassword(u.name)));
 	}
+
+	/**
+	 * @return s
+	 */
+	public Server getServer() {
+		return s;
+	}
+
 	
 	/*
 	 * 棋盘：15线*15线，225交点

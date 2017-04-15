@@ -1,4 +1,4 @@
-package com.hanfeng.chess.client;
+package com.hanfeng.chess.client.view;
 
 import java.awt.Graphics;
 import java.awt.LayoutManager;
