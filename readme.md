@@ -5,7 +5,7 @@
 3. 跨平台。全部使用Java编写，即使移植到移动端，也只需修改View层。
 
 - 协议
-### 遵守GPL协议。
+遵守GPL协议。
 
 - 联系方式
 邮箱：[life.app.hanfeng@hotmail.com](mailto:life.app.hanfeng@hotmail.com)
