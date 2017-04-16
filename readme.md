@@ -7,6 +7,5 @@
 - 协议  
 遵守GPL协议。
 
-- 联系方式
-  
+- 联系方式  
 邮箱：[life.app.hanfeng@hotmail.com](mailto:life.app.hanfeng@hotmail.com)
